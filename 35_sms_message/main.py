@@ -1,5 +1,6 @@
 from twilio.rest import Client
 
+#using twilio api to send a message via sms 
 USER_ID = "ACea2ddf495eed1b11d313b82a81213eb8"
 AUTH_ID = "2ecbd22cc829ebfec644a40a1e72e973"
 

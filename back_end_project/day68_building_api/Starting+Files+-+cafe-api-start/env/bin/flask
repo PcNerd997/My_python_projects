@@ -1,0 +1,10 @@
+#!/bin/sh
+'''exec' /home/pcnerd/my_python_project/The_start_of_web_dev_projects/back_end_project/day68_building_api/Starting+Files+-+cafe-api-start/env/bin/python3 "$0" "$@"
+' '''
+# -*- coding: utf-8 -*-
+import re
+import sys
+from flask.cli import main
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())

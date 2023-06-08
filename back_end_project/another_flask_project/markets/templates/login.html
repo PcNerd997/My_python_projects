@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}
+    Login Page
+{% endblock %}
+
+{% block content %}
+    <div class = "container" >
+        <h1 class = "text-center" >Create an Account</h1>
+        <form action = "{{ url_for('login')}}" method = 'post' novalidate>
+            {{ forms.csrf_token }}
+            <div class = "form-group">
+                {{ forms.name.label() }}
+                {{ forms.name(class = "form-control", placeholder="Enter Username")}}
+                {% if forms.name.errors %}
+                    {% for error in forms.name.errors %}
+                        <br><span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class = "form-group">
+                {{ forms.email_address.label(for="exampleInputEmail1")}}
+                {{ forms.email_address(class = 'form-control', placeholder = "Enter Email")}}
+                {% if forms.email_address.errors %}
+                    {% for error in forms.email_address.errors %}
+                        <br><span style = "color: red;">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class = "form-group">
+                {{ forms.password.label() }}
+                {{ forms.password( class = "form-control", placeholder = "Enter Password") }}
+                {% if forms.password.errors %}
+                    {% for error in forms.password.errors %}
+                        <br><span style = "color: red;">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class = "form-group">
+                {{ forms.password2.label() }}
+                {{ forms.password2(class = "form-control", placeholder = "Confirm Password")}}
+                {% if forms.password2.errors %}
+                    {% for error in forms.password2.errors %}
+                        <br><span style = "color: red;">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class = "form-group text-center">
+                {{ forms.submit( class = "btn btn-primary btn-lg btn-block") }}
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
